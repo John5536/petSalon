@@ -1,4 +1,4 @@
-let pets = [];
+
 let  petSalon = {
     name:"THe fashion pet",
     address:{
@@ -9,24 +9,41 @@ let  petSalon = {
 }
 
 //creating pets
-let pet1={
-    name:"scooby",
+let dog={
+    name:"Brutus",
     age:80,
-    gender:"male"
+    gender:"male",
+    service:"Dental work",
+    breed:"staffordshire terrier"
 }
-
-let pet2={
+let cat={
     name:"scrappy",
     age:70,
-    gender:"male"
+    gender:"male",
+    service:"Nail trim",
+    breed:"Calico"
+}
+let turtle = {
+    name:"Donatello",
+    age:100,
+    gender:"Female",
+    service:"Eye infection",
+    breed:"Red eared slider"
 }
 
-//push the object into the array
 
-pets.push(pet1,pet2);
+
+let pets = [dog,cat,turtle];
+
 function displayPetNames(){
-//console.log(pets);//display array
-console.log(pets[0].name);
-console.log(pets[1].name);
-console.log("we have:" + pets.length + "pets");
+    let output = document.getElementById("animal_output");
+    let namesList = "";
+
+    for (let i = 0; i < pets.length; i++) {
+        namesList += pets[i].name + "<br>"; 
+    }
+
+    output.innerHTML = namesList;
+
 }
+displayPetNames();
