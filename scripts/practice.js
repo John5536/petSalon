@@ -60,3 +60,6 @@ for(let i=0; i<globalPractice; i++){
 
 
 }
+
+
+//displaying names on
