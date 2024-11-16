@@ -30,20 +30,39 @@ let turtle = {
     service:"Eye infection",
     breed:"Red eared slider"
 }
+let add_animal_to_list = document.getElementById("place_name");
+add_animal_to_list.addEventListener("click", function displayOnpage() {
+    let btnClicked_index = document.getElementById("user_input_index").value
 
-
-
-let pets = [dog,cat,turtle];
-
-function displayPetNames(){
-    let output = document.getElementById("animal_output");
+    pets.push({name: btnClicked_index});
     let namesList = "";
-
     for (let i = 0; i < pets.length; i++) {
         namesList += pets[i].name + "<br>"; 
     }
+    document.getElementById("animal_output").innerHTML = namesList;
+    console.log(pets);
 
-    output.innerHTML = namesList;
 
-}
-displayPetNames();
+
+})
+
+
+
+let pets = [];
+
+// function displayPetNames(){
+    
+//     let output = document.getElementById("animal_output");
+//     let namesList = "";
+
+
+
+//     for (let i = 0; i < pets.length; i++) {
+//         namesList += pets[i].name + "<br>"; 
+//     }
+
+//     output.innerHTML = namesList;
+
+
+// }
+// displayPetNames();
