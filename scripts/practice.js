@@ -1,21 +1,19 @@
-var globalVariable = "I am global";
+var globalVariable = "I am in global scope";
 
 function myFunction(){
     var localVariable = "I am in local scope";
-    //this function is global
+    //this fn can access to the globalVariable
     console.log(globalVariable);
     if(true){
         var blockVariable = "I am in a block scope";
-        //THis is limited to the block(for,if)
+        //this is limited to the block(for, if)
         console.log(blockVariable);
     }
+    //this is limited to the fn
     console.log(localVariable);
-
 }
 
 myFunction();
-
-//creating an object
 
 //name,age,gender
 let student1 = {
@@ -31,35 +29,4 @@ let student1 = {
 
 console.log(student1);
 
-let pikachu = {
-    type: "electric",
-    level:"five",
-    attack:"Thunder wave",
-    height:12,
-    color: "yellow"
-}
-
-console.log(pikachu);
-
-
-
-
-
-
-
-let globalPractice = ["1","2"];
-for(let i=0; i<globalPractice; i++){
-        document.write(`
-        <tr>
-            <td>${}</td>
-            <td>${}</td>
-        </tr>
-        
-        `)
-
-
-
-}
-
-
-//displaying names on
+//create an object (with 5 properties/attributes)

@@ -1,20 +1,41 @@
-#animal_output{
-    background-color: bisque;
-    margin-top: 20%;
-    height: 300px;
-    width: 25%;
+.error {
+    background-color: rgb(255, 179, 179);
+    border: solid 1px red;
+  }
+  
+  .container{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-top: 90px;
+  
+  
+  }
+  
+  .containerRow{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto;
+  }
+  
+  #clearForm{
+    
+    margin-left: 45%;
+  }
+  
+  body{
+    background-color: darkgray;
+  }
+  
+  .h2reg{
+    color: white;
     text-align: center;
-    font-weight: bold;
-    border-radius: 25px;
-    
-   
-}
-
-.center_page{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    align-items: center;
-    
-    
-}
+    margin-bottom: 20px;
+  }
