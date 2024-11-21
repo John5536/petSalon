@@ -81,7 +81,7 @@ function init(){
 
 window.onload=init;
 
-document.getElementById("clearForm").addEventListener("click", function() {
+document.getElementById("clearForm2").addEventListener("click", function() {
     document.getElementById("pets").innerHTML = "";
     pets.length = 0
 });

@@ -21,21 +21,37 @@
   flex-direction: column;
   border: 2px solid gray;
   border-radius: 10px;
-  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+ 
   margin: 0 auto;
+  
   }
   
-  #clearForm{
+  #clearForm2{
     
     margin-left: 45%;
   }
   
   body{
-    background-color: darkgray;
+    background: linear-gradient(45deg,#E4E0E1,#D6C0B3,#AB886D,#493628);
+    background-size: 300% 300%;
+    animation: color 5s ease-in-out infinite;
+    
+  }
+  @keyframes color{
+    0%{background-position: 0 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0 50%;}
   }
   
   .h2reg{
     color: white;
     text-align: center;
     margin-bottom: 20px;
+  }
+
+
+  #deletebtn{
+    width: 90px;
   }

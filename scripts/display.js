@@ -7,6 +7,7 @@ function displayRow() {
     let pet = pets[i];
 
     result += ` 
+    
         <table class="table">
       <thead>
         <tr>
@@ -16,6 +17,8 @@ function displayRow() {
           <th scope="col">Gender</th>
           <th scope="col">Breed</th>
           <th scope="col">Service</th>
+          
+        
         </tr>
       </thead>
       <tbody>
@@ -26,11 +29,16 @@ function displayRow() {
           <td>${pet.gender}</td>
           <td>${pet.breed}</td>
           <td>${pet.service}</td>
+          <td>${pet.value=""}</td>
+          
+          
         </tr>
         
  
       </tbody>
+      
     </table>
+    
       
     `
   }
