@@ -46,5 +46,19 @@ function displayRow() {
   cardsSection.innerHTML = result;
 }
 
+// login functionality (will only store the input into an array)
 
+let btn_login = document.getElementById("button1")
+
+btn_login.addEventListener("click", function(){
+  let login_pw = document.getElementById("input1").value;
+  let login_email = document.getElementById("input2").value;
+
+  login_pw.innerHTML = "";
+  
+
+
+
+
+});
 
