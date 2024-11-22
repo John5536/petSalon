@@ -69,15 +69,9 @@ function clearForm(){
 }
 
 
-function init(){
-    let pet1 = new Pet("Scooby",99,"Male","Dane","Grooming");
-    let pet2 = new Pet("Scrappy",98,"Female","Mixed","Vaccines");
-    pets.push(pet1,pet2);
-
-    displayRow();
-}
 
 
+displayRow();
 
 window.onload=init;
 

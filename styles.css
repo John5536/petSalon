@@ -1,4 +1,4 @@
-.error {
+  .error {
     background-color: rgb(255, 179, 179);
     border: solid 1px red;
   }
@@ -28,10 +28,7 @@
   
   }
   
-  #clearForm2{
-    
-    margin-left: 45%;
-  }
+  
   
   body{
     background: linear-gradient(45deg,#E4E0E1,#D6C0B3,#AB886D,#493628);
@@ -52,6 +49,8 @@
   }
 
 
-  #deletebtn{
-    width: 90px;
+  .mb-4{
+    display: flex;
+    justify-content: space-around;
   }
+ 
