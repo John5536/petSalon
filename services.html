@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Checkout</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./scripts/services.js" defer></script>
+</head>
+<body>
+    <fieldset id="serviceChoice">
+        <legend>Services</legend>
+        <label for="text">Select a service:</label>
+        <select name="text" id="selectServe">
+            <option value="15.50">Nail Trim: $15.50</option>
+            <option value="0">Vet Service: Ask front</option>
+            <option value="25">Bath: $25</option>
+            <option value="60">Day care: $60 per night</option>
+        </select>
+
+        <div>
+            <div><p id="total">Total:</p></div>
+            <fieldset id="cart"></fieldset>
+            <button id="checkout">Checkout</button>
+        </div>
+    </fieldset>
+</body>
+</html>
