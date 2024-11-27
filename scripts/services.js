@@ -1,34 +1,42 @@
-function services (description, price){
-  this.description = description;
-  this.price = price;
+class salonServices{
+  constructor(userName, petName , serviceNeeded, appointmentDate){
+    this.userName = userName;
+    this.petName = petName;
+    this.serviceNeeded = serviceNeeded;
+    this.appointmentDate =appointmentDate;
+  }
+}
+
+let servicesChosen = [];
+
+function sericesManager(){
+  let personName = document.getElementById("userName").value;
+  let animalName = document.getElementById("animalNameindex").value;
+  let serviceName = document.getElementById("serviceDesired").value;
+  let appointmentName = document.getElementById("aptDate").value;
+
+  let newServiceslist = new salonServices(personName,animalName,serviceName,appointmentName);
+
+  servicesChosen.push(newServiceslist);
+
+  let servicesString =JSON.stringify(servicesChosen);
+
+  localStorage.setItem('servicekey',servicesString);
+
+  console.log(servicesChosen);
 
 }
 
-$(document).ready(function () {
-  let total = 0; 
+function displayInhtml (){
+  let storedServices = localStorage.getItem('servicekey');
+  let parsedinfo = JSON.parse(storedServices);
+  let servicesDisplay2 = document.getElementById("servicesDisplay");
 
-  
-  $("#selectServe").on("change", function () {
-      const selectedOption = $(this).find(":selected"); 
-      const serviceText = selectedOption.text(); 
-      const serviceValue = parseFloat(selectedOption.val());
+  servicesDisplay2.innerHTML = parsedinfo;
+}
 
-      if (!isNaN(serviceValue)) { 
-          
-          $("#cart").append(`<p>${serviceText}</p>`);
+let serviceButton = document.getElementById("servicesBtn");
 
-          
-          total += serviceValue;
-          $("#total").text(`Total: $${total.toFixed(2)}`).css("color", "black");
-      }
-  });
-
-  
-  $("#checkout").on("click", function () {
-      if ($("#cart").children().length === 0) {
-          $("#total")
-              .text("Error: Add at least one service before checking out!")
-              .css("color", "red");
-      } 
-  });
-});
+serviceButton.addEventListener("click", function(){
+  sericesManager();
+})
