@@ -17,6 +17,20 @@ function sericesManager(){
 
   let newServiceslist = new salonServices(personName,animalName,serviceName,appointmentName);
 
+
+  if (document.getElementById("userName").value === ''){
+    alert("username is empty!")
+  }
+  else if (document.getElementById("animalNameindex").value === ''){
+    alert("animal name is empty!")
+  }
+  else if (document.getElementById("serviceDesired").value === ''){
+    alert("service is empty!")
+  }
+  else if (document.getElementById("aptDate").value === ''){
+    alert("appointment is empty!")
+  }
+
   servicesChosen.push(newServiceslist);
 
   let servicesString =JSON.stringify(servicesChosen);
@@ -24,6 +38,11 @@ function sericesManager(){
   localStorage.setItem('servicekey',servicesString);
 
   console.log(servicesChosen);
+
+  document.getElementById("userName").value = '';
+  document.getElementById("animalNameindex").value = '';
+  document.getElementById("serviceDesired").value = '';
+  document.getElementById("aptDate").value = '';
 
 }
 
@@ -37,6 +56,9 @@ function displayInhtml (){
 
 let serviceButton = document.getElementById("servicesBtn");
 
+
+
 serviceButton.addEventListener("click", function(){
   sericesManager();
+
 })
