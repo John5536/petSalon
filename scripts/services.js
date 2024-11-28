@@ -1,3 +1,5 @@
+
+window.onload = function() { displayInhtml(); };
 class salonServices{
   constructor(userName, petName , serviceNeeded, appointmentDate){
     this.userName = userName;
@@ -7,7 +9,7 @@ class salonServices{
   }
 }
 
-let servicesChosen = [];
+let servicesChosen = JSON.parse(localStorage.getItem('servicekey')) || [];
 
 function sericesManager(){
   let personName = document.getElementById("userName").value;
