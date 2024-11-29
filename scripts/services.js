@@ -1,66 +1,52 @@
-
-window.onload = function() { displayInhtml(); };
-class salonServices{
-  constructor(userName, petName , serviceNeeded, appointmentDate){
-    this.userName = userName;
-    this.petName = petName;
-    this.serviceNeeded = serviceNeeded;
-    this.appointmentDate =appointmentDate;
+class salonServices {
+  constructor(userName, petName, serviceNeeded, appointmentDate) {
+      this.userName = userName;
+      this.petName = petName;
+      this.serviceNeeded = serviceNeeded;
+      this.appointmentDate = appointmentDate;
   }
 }
 
-let servicesChosen = JSON.parse(localStorage.getItem('servicekey')) || [];
+let servicesChosen = JSON.parse(localStorage.getItem('servicekey')) || []; 
 
-function sericesManager(){
+function servicesManager() {
   let personName = document.getElementById("userName").value;
   let animalName = document.getElementById("animalNameindex").value;
   let serviceName = document.getElementById("serviceDesired").value;
-  let appointmentName = document.getElementById("aptDate").value;
+  let appointmentDate = document.getElementById("aptDate").value;
 
-  let newServiceslist = new salonServices(personName,animalName,serviceName,appointmentName);
-
-
-  if (document.getElementById("userName").value === ''){
-    alert("username is empty!")
-  }
-  else if (document.getElementById("animalNameindex").value === ''){
-    alert("animal name is empty!")
-  }
-  else if (document.getElementById("serviceDesired").value === ''){
-    alert("service is empty!")
-  }
-  else if (document.getElementById("aptDate").value === ''){
-    alert("appointment is empty!")
-  }
+  let newServiceslist = new salonServices(personName, animalName, serviceName, appointmentDate);
 
   servicesChosen.push(newServiceslist);
 
-  let servicesString =JSON.stringify(servicesChosen);
+  let servicesString = JSON.stringify(servicesChosen);
 
-  localStorage.setItem('servicekey',servicesString);
+  localStorage.setItem('servicekey', servicesString);
 
   console.log(servicesChosen);
 
-  document.getElementById("userName").value = '';
-  document.getElementById("animalNameindex").value = '';
-  document.getElementById("serviceDesired").value = '';
-  document.getElementById("aptDate").value = '';
-
-}
-
-function displayInhtml (){
-  let storedServices = localStorage.getItem('servicekey');
-  let parsedinfo = JSON.parse(storedServices);
-  let servicesDisplay2 = document.getElementById("servicesDisplay");
-
-  servicesDisplay2.innerHTML = parsedinfo;
+  displayInhtml(); 
 }
 
 let serviceButton = document.getElementById("servicesBtn");
 
+serviceButton.addEventListener("click", function() {
+  servicesManager(); 
+});
+
+function displayInhtml() {
+  let storedServices = localStorage.getItem('servicekey');
+  let parsedinfo = JSON.parse(storedServices);
+  let servicesDisplay2 = document.getElementById("servicesDisplay");
+
+  
+  servicesDisplay2.innerHTML = '';
+
+  
+  parsedinfo.forEach(service => {
+      servicesDisplay2.innerHTML += `User: ${service.userName}, Pet: ${service.petName}, Service: ${service.serviceNeeded}, Date: ${service.appointmentDate}<br>`;
+  });
+}
 
 
-serviceButton.addEventListener("click", function(){
-  sericesManager();
-
-})
+displayInhtml();
