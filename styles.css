@@ -14,6 +14,18 @@
   
   
   }
+
+  #services-Selected-register2{
+    background-color: white;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-top: 10px;
+    
+  }
   
   .containerRow{
   background-color: white;
