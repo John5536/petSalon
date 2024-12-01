@@ -1,131 +1,53 @@
-  .error {
-    background-color: rgb(255, 179, 179);
-    border: solid 1px red;
-  }
-  
-  .container{
-  background-color: white;
+
+body {
+  background: linear-gradient(45deg, #E4E0E1, #D6C0B3, #AB886D, #493628);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid gray;
-  border-radius: 10px;
-  margin-top: 90px;
-  
-  
-  }
-
-  #services-Selected-register2{
-    background-color: white;
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: 1px solid gray;
-    margin-top: 10px;
-    
-  }
-  
-  .containerRow{
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid gray;
-  border-radius: 10px;
-  max-width: 600px;
-  min-width: 300px;
- 
-  margin: 0 auto;
-  
-  }
-  
-  
-  
-  body{
-    background: linear-gradient(45deg,#E4E0E1,#D6C0B3,#AB886D,#493628);
-    background-size: 300% 300%;
-    animation: color 12s ease-in-out infinite;
-    
-  }
-  @keyframes color{
-    0%{background-position: 0 50%;}
-    50%{background-position: 100% 50%;}
-    100%{background-position: 0 50%;}
-  }
-  
-  .h2reg{
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-
-  .mb-4{
-    display: flex;
-    justify-content: space-around;
-  }
- 
-
-  .catpng1{
-    z-index: -1;
-    width: 700px;
-    margin-left: 25%;
-    
-    
-   
-  }
-
-
-  /* index page */
-
-  .index-statement{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    
-
-
-
-  }
-
-  fieldset {
-    display: flex;
-    flex-direction: row;
-    max-width: 500px;
-    border-radius: 10px;
-    background-color: white;
-    border-color: white;
-    border-width: 1px;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
-    gap: 20px;
-    
-     
-    
+  justify-content: flex-start;
 }
 
-#inputs{
-  display: flex;
-  flex-direction: column;
- 
-  
+.navbar {
+  margin-bottom: 20px;
 }
 
-#label1{
-  display: flex;
-  flex-direction: column;
-  margin-top: 5px;
-}
-
-#button1{
-  display: flex;
-  width: 20%;
-  border-radius: 10px;
+.index-statement,
+.container {
   background-color: white;
-  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form .btn {
+  width: 150px;
+}
+fieldset {
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+}
+
+fieldset legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#services-Selected-register2 {
+  margin-top: 20px;
+}
+
+.catpng1 {
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .row {
+      flex-direction: column;
+  }
 }

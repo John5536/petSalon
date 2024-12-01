@@ -1,66 +1,97 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   
-  class salonServices {
-      constructor(userName, petName, serviceNeeded, appointmentDate) {
-          this.userName = userName;
-          this.petName = petName;
-          this.serviceNeeded = serviceNeeded;
-          this.appointmentDate = appointmentDate;
-      }
-  }
-
+    class SalonServices {
+        constructor(userName, petName, serviceNeeded, appointmentDate) {
+            this.userName = userName;
+            this.petName = petName;
+            this.serviceNeeded = serviceNeeded;
+            this.appointmentDate = appointmentDate;
+        }
+    }
   
-  let servicesChosen = JSON.parse(localStorage.getItem('servicekey')) || []; 
-
+    
+    let servicesChosen = JSON.parse(localStorage.getItem('servicekey')) || [];
   
-  function servicesManager() {
-      let personName = document.getElementById("userName").value;
-      let animalName = document.getElementById("animalNameindex").value;
-      let serviceName = document.getElementById("serviceDesired").value;
-      let appointmentDate = document.getElementById("aptDate").value;
-
-      
-      let newServiceslist = new salonServices(personName, animalName, serviceName, appointmentDate);
-
-      
-      servicesChosen.push(newServiceslist);
-
-      
-      let servicesString = JSON.stringify(servicesChosen);
-      localStorage.setItem('servicekey', servicesString);
-
-      
-      console.log(servicesChosen);
-
-      
-      displayInhtml();
-  }
-
+    
+    function servicesManager() {
+        let personName = document.getElementById("userName").value;
+        let animalName = document.getElementById("animalNameindex").value;
+        let serviceName = document.getElementById("serviceDesired").value;
+        let appointmentDate = document.getElementById("aptDate").value;
   
-  let serviceButton = document.getElementById("servicesBtn");
-  if (serviceButton) {
-      serviceButton.addEventListener("click", function() {
-          servicesManager(); 
-      });
-  }
-
+        
+        if (!personName || !animalName || !serviceName || !appointmentDate) {
+            alert("Please fill in all fields.");
+            return;
+        }
   
-  function displayInhtml() {
       
-      let storedServices = localStorage.getItem('servicekey');
-      let parsedinfo = JSON.parse(storedServices);
-      let servicesDisplay2 = document.getElementById("services-Selected-register2");
-
-      
-      servicesDisplay2.innerHTML = '';
-
-      
-      parsedinfo.forEach(service => {
-          servicesDisplay2.innerHTML += `User: ${service.userName}, Pet: ${service.petName}, Service: ${service.serviceNeeded}, Date: ${service.appointmentDate}<br>`;
-      });
-  }
-
+        let newService = new SalonServices(personName, animalName, serviceName, appointmentDate);
   
-  displayInhtml();
-});
+       
+        servicesChosen.push(newService);
+        localStorage.setItem('servicekey', JSON.stringify(servicesChosen));
+  
+        console.log(servicesChosen);
+  
+        
+        displayInServicesPage();
+    }
+  
+ 
+    let serviceButton = document.getElementById("servicesBtn");
+    if (serviceButton) {
+        serviceButton.addEventListener("click", function () {
+            servicesManager(); 
+        });
+    }
+  
+    
+    function displayInServicesPage() {
+        let servicesDisplay = document.getElementById("services-Selected-register2");
+        if (!servicesDisplay) return;
+  
+        let storedServices = localStorage.getItem('servicekey');
+        let parsedServices = JSON.parse(storedServices) || [];
+  
+     
+        servicesDisplay.innerHTML = '';
+  
+       
+        parsedServices.forEach(service => {
+            servicesDisplay.innerHTML += `
+                <p>
+                    <strong>User:</strong> ${service.userName}, 
+                    <strong>Pet:</strong> ${service.petName}, 
+                    <strong>Service:</strong> ${service.serviceNeeded}, 
+                    <strong>Date:</strong> ${service.appointmentDate}
+                </p>`;
+        });
+    }
+    
+    function displayInRegisterPage() {
+        let registerDisplay = document.getElementById("services-Selected-register2");
+        if (!registerDisplay) return;
+  
+        let storedServices = localStorage.getItem('servicekey');
+        let parsedServices = JSON.parse(storedServices) || [];
+  
+        
+        registerDisplay.innerHTML = '';
+  
+        
+        parsedServices.forEach(service => {
+            registerDisplay.innerHTML += `
+                <p>
+                    <strong>User:</strong> ${service.userName}, 
+                    <strong>Pet:</strong> ${service.petName}, 
+                    <strong>Service:</strong> ${service.serviceNeeded}, 
+                    <strong>Date:</strong> ${service.appointmentDate}
+                </p>`;
+        });
+    }
+  
+    displayInServicesPage();
+    displayInRegisterPage();
+  });
+  
